@@ -36,7 +36,7 @@ const Welcome = () => {
       const letterCenter = lRect.left - rect.left + lRect.width / 2;
       const distance = Math.abs(mouseX - letterCenter);
       const intensity = Math.exp(-(distance ** 2) / spread);
-      const scale = 1 + 0.25 * intensity;
+      const scale = 1 + 0.2 * intensity;
       const weight = Math.round(base + (max - base) * intensity);
 
       gsap.to(letter, {
