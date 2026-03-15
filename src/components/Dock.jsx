@@ -1,9 +1,25 @@
 import { dockApps } from "#constants";
 import React from "react";
 import { Tooltip } from "react-tooltip";
+import useWindowStore from "../../store/window";
 
 const Dock = () => {
-  const toggleApp = (app) => {};
+  const { openWindow, requestClose, windows } = useWindowStore();
+  const toggleApp = (app) => {
+    if (!app.canOpen) return;
+
+    const win = windows[app.id];
+    if (!win) {
+      console.error(`Window ${app.id} not found`);
+      return;
+    }
+
+    if (win.isOpen) {
+      requestClose(app.id);
+    } else {
+      openWindow(app.id);
+    }
+  };
   return (
     <section id="dock">
       <div className="dock-container">
