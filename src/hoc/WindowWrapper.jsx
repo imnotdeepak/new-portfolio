@@ -39,17 +39,23 @@ const WindowWrapper = (Component, windowKey) => {
 
     useEffect(() => {
       if (!isOpen || pendingClose === windowKey) return;
-      const el = sectionRef.current;
-      if (!el) return;
+      const wrapperEl = wrapperRef.current;
+      const sectionEl = sectionRef.current;
+      if (!wrapperEl || !sectionEl) return;
 
-      gsap.fromTo(el, ENTRY_ANIMATION.from, {
+      gsap.fromTo(wrapperEl, ENTRY_ANIMATION.from, {
         ...ENTRY_ANIMATION.to,
         duration: ENTRY_ANIMATION.duration,
         ease: ENTRY_ANIMATION.ease,
         transformOrigin: "center center",
       });
 
-      const instances = Draggable.create(el, {
+      const dragHandle =
+        sectionEl.querySelector("[data-window-drag-handle]") ||
+        sectionEl.querySelector("#window-header") ||
+        wrapperEl;
+      const instances = Draggable.create(wrapperEl, {
+        handle: dragHandle,
         onPress: () => {
           focusWindow(windowKey);
         },
@@ -61,10 +67,10 @@ const WindowWrapper = (Component, windowKey) => {
 
     useEffect(() => {
       if (pendingClose !== windowKey || !isOpen) return;
-      const el = sectionRef.current;
-      if (!el) return;
+      const wrapperEl = wrapperRef.current;
+      if (!wrapperEl) return;
 
-      const tween = gsap.fromTo(el, EXIT_ANIMATION.from, {
+      const tween = gsap.fromTo(wrapperEl, EXIT_ANIMATION.from, {
         ...EXIT_ANIMATION.to,
         duration: EXIT_ANIMATION.duration,
         ease: EXIT_ANIMATION.ease,
@@ -80,12 +86,12 @@ const WindowWrapper = (Component, windowKey) => {
 
     return (
       <>
-        <div ref={wrapperRef} style={{ position: "absolute" }}>
-          <section
-            id={windowKey}
-            ref={sectionRef}
-            className="will-change-transform"
-          >
+        <div
+          ref={wrapperRef}
+          style={{ position: "absolute" }}
+          className="will-change-transform"
+        >
+          <section id={windowKey} ref={sectionRef}>
             <Component {...props} />
           </section>
         </div>
