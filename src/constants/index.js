@@ -74,31 +74,6 @@ const dockApps = [
   },
 ];
 
-const blogPosts = [
-  {
-    id: 1,
-    date: "Sep 2, 2025",
-    title:
-      "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
-    image: "/images/blog1.png",
-    link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
-  },
-  {
-    id: 2,
-    date: "Aug 28, 2025",
-    title: "The Ultimate Guide to Mastering Three.js for 3D Development",
-    image: "/images/blog2.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
-  },
-  {
-    id: 3,
-    date: "Aug 15, 2025",
-    title: "The Ultimate Guide to Mastering GSAP Animations",
-    image: "/images/blog3.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
-  },
-];
-
 const techStack = [
   {
     category: "Frontend",
@@ -203,6 +178,8 @@ const gallery = [
     img: "/images/gal4.png",
   },
 ];
+
+const blogPosts = [];
 
 export {
   navLinks,
@@ -493,14 +470,54 @@ export const locations = {
 const INITIAL_Z_INDEX = 1000;
 
 const WINDOW_CONFIG = {
-  finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false },
-  contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false },
-  resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false },
-  safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false },
-  photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false },
-  terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false },
-  txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false },
-  imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false },
+  finder: {
+    isOpen: false,
+    zIndex: INITIAL_Z_INDEX,
+    data: null,
+    isMaximized: false,
+  },
+  contact: {
+    isOpen: false,
+    zIndex: INITIAL_Z_INDEX,
+    data: null,
+    isMaximized: false,
+  },
+  resume: {
+    isOpen: false,
+    zIndex: INITIAL_Z_INDEX,
+    data: null,
+    isMaximized: false,
+  },
+  safari: {
+    isOpen: false,
+    zIndex: INITIAL_Z_INDEX,
+    data: null,
+    isMaximized: false,
+  },
+  photos: {
+    isOpen: false,
+    zIndex: INITIAL_Z_INDEX,
+    data: null,
+    isMaximized: false,
+  },
+  terminal: {
+    isOpen: false,
+    zIndex: INITIAL_Z_INDEX,
+    data: null,
+    isMaximized: false,
+  },
+  txtfile: {
+    isOpen: false,
+    zIndex: INITIAL_Z_INDEX,
+    data: null,
+    isMaximized: false,
+  },
+  imgfile: {
+    isOpen: false,
+    zIndex: INITIAL_Z_INDEX,
+    data: null,
+    isMaximized: false,
+  },
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
